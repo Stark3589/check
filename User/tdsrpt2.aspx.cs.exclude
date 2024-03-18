@@ -1,0 +1,122 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class User_tdsrpt2 : System.Web.UI.Page
+{
+    BussinessLayer ob = new BussinessLayer();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        DataTable dt = ob.dttt("select * from closingdate ");
+        gvrclo.DataSource = dt;
+        gvrclo.DataBind();
+    }
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        if (e.CommandName == "hello")
+        {
+            try
+            {
+                LinkButton lnkView = (LinkButton)e.CommandSource;
+                string st = Convert.ToString(lnkView.CommandArgument);
+
+                DataTable dt = ob.dttt("select datefrom,dateto from closingdate where id='" + st + "'");
+                //string date1 = dt.Rows[0][0].ToString();
+                //string date2 = dt.Rows[0][1].ToString();
+                DateTime date1 = DateTime.Parse(dt.Rows[0][0].ToString());
+                DateTime date2 = DateTime.Parse(dt.Rows[0][1].ToString());
+
+                ViewState["datefrom"] = date1.ToString("yyyy-MM-dd");
+                ViewState["dateto"] = date2.ToString("yyyy-MM-dd");
+
+
+                string str = "select a.username As Username,b.name As Name,b.pan As PanNo,b.mobile As Mobile_No,sum(cast(nextclub as real)) as Direct_Income,sum(cast(tds as real)) as TDS,sum(cast(adm as real)) as Admin_Charge,sum(cast(total as real)) As Paid_Amt,c.accno as Account_No,c.bankname as Bank,c.ifsc as IFSC_Code,c.branchname as Branch_Name from tdstable a,register b, bankdetail c where a.username=b.username and a.username=c.username and date1 = '" + date1.ToString("yyyy-MM-dd") + "' and  date2='" + date2.ToString("yyyy-MM-dd") + "' group by a.username,b.name,b.pan,b.mobile,c.accno ,c.bankname ,c.ifsc ,c.branchname";
+                DataTable dtg = ob.dttt(str);
+                if (dtg.Rows.Count > 0)
+                {
+                    GridView1.DataSource = dtg;
+                    GridView1.DataBind();
+                    print.Visible = true;
+                    Button1.Visible = true;
+                }
+                else
+                {
+                    Button1.Visible = false;
+                    print.Visible = false;
+                }
+            }
+            catch (Exception k) { };
+
+
+
+        }
+    }
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+        /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
+           server control at run time. */
+    }
+    public void printreport()
+    {
+        try
+        {
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=TDSReport.xls");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-excel";
+            using (StringWriter sw = new StringWriter())
+            {
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+                //To Export all pages
+                GridView1.AllowPaging = false;
+                // this.BindGrid();
+
+                GridView1.HeaderRow.BackColor = System.Drawing.Color.White;
+                foreach (TableCell cell in GridView1.HeaderRow.Cells)
+                {
+                    cell.BackColor = GridView1.HeaderStyle.BackColor;
+                }
+                foreach (GridViewRow row in GridView1.Rows)
+                {
+                    row.BackColor = System.Drawing.Color.White; ;
+                    foreach (TableCell cell in row.Cells)
+                    {
+                        if (row.RowIndex % 2 == 0)
+                        {
+                            cell.BackColor = GridView1.AlternatingRowStyle.BackColor;
+                        }
+                        else
+                        {
+                            cell.BackColor = GridView1.RowStyle.BackColor;
+                        }
+                        cell.CssClass = "textmode";
+                    }
+                }
+
+                GridView1.RenderControl(hw);
+
+                //style to format numbers to string
+                string style = @"<style> .textmode { } </style>";
+                Response.Write(style);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+            }
+        }
+        catch (Exception k) { Response.Write("<script>alert('NO RECORD FOUND TO PRINT')</script>"); };
+    }
+    protected void print_Click(object sender, EventArgs e)
+    {
+        printreport();
+    }
+}

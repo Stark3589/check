@@ -1,0 +1,524 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage23.master.cs" Inherits="Admin_MasterPage" %>
+<%@ Register Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" tagPrefix="ajax" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body onload="startTime()">
+
+    <form id="form2" runat="server">
+
+    <div id="wrapper">
+     
+                
+              <ajax:ToolkitScriptManager ID="toolkit1" runat="server"></ajax:ToolkitScriptManager>
+                
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+                        
+                <a class="navbar-brand" href="#">	<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><img src="../images/header-top.png" height="80px" style="margin-bottom:-10px;"> 
+                    </div>
+            </a></div>
+<div style="font-size:x-large;" id="txt"></div>           
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li> -->
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user">
+ <asp:Label ID="Label1" runat="server"></asp:Label>                   
+                    </i> &nbsp;<b class="caret"></b></a><ul class="dropdown-menu">
+                        <li>
+                            <a href="edit.aspx"><i class="fa fa-fw fa-power-off"></i>Update Profile</a>
+                        </li>
+                        <%--<li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>--%>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="../Default.aspx"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                
+                <li>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul4"><i class="fa fa-fw fa-arrows-v"></i>1. Member Approval <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul4" class="collapse">
+                    <li>
+                        <a href="Home.aspx"><i class="fa fa-fw fa-desktop"></i>Inactive User ID</a>
+                    </li>
+                         <li>
+                        <a href="Active.aspx"><i class="fa fa-fw fa-desktop"></i>Active User ID</a>
+                    </li>
+                             <li>
+                        <a href="Receipt.aspx"><i class="fa fa-fw fa-desktop"></i>Print Receipt</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <%--<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul5"><i class="fa fa-fw fa-arrows-v"></i>2. Weekly Income Check <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul5" class="collapse">
+                            <li>
+                        <a href="WeeklyDPI.aspx"><i class="fa fa-fw fa-desktop"></i>Direct Purchase Income</a>
+                    </li>
+                    <li>
+                        <a href="WeeklyBonus.aspx"><i class="fa fa-fw fa-desktop"></i>Bonus Income</a>
+                    </li>
+                         <li>
+                        <a href="WeeklyDsi.aspx"><i class="fa fa-fw fa-desktop"></i>Direct Sponser Income</a>
+                    </li>
+                        </ul>
+                    </li>--%>
+                    <li>
+                        <a href="WeeklyIncome.aspx"><i class="fa fa-fw fa-dashboard"></i>2. Weekly Income</a>
+                    </li>
+                    <li>
+                        <a href="MonthlyIncome.aspx"><i class="fa fa-fw fa-dashboard"></i>3. Monthly Income</a>
+                    </li>
+                     
+                    <%--<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul6"><i class="fa fa-fw fa-arrows-v"></i>3. Monthly Income Check <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul6" class="collapse">
+                            <li>
+                        <a href="MonthlyTurnover.aspx"><i class="fa fa-fw fa-desktop"></i>Turnover Income</a>
+                    </li>
+                    <li>
+                        <a href="MonthlyRepurchase.aspx"><i class="fa fa-fw fa-desktop"></i>Repurchase Income</a>
+                    </li>
+                    <li>
+                        <a href="MonthlyReward.aspx"><i class="fa fa-fw fa-desktop"></i>Reward Income</a>
+                    </li>     
+                        </ul>
+                    </li>--%>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul7"><i class="fa fa-fw fa-arrows-v"></i>4. Payment Statement <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul7" class="collapse">
+                          <li>
+                        <a href="WeeklyStatement.aspx"><i class="fa fa-fw fa-desktop"></i>Weekly Statement</a>
+                    </li>
+                         <li>
+                        <a href="MonthlyStatement.aspx"><i class="fa fa-fw fa-desktop"></i>Monthly Statement</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul8"><i class="fa fa-fw fa-arrows-v"></i>5. Member Pin <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul8" class="collapse">
+                            <li>
+                        <a href="password.aspx"><i class="fa fa-fw fa-desktop"></i>Pin Generate</a>
+                    </li>
+                         <li>
+                        <a href="usedpins.aspx"><i class="fa fa-fw fa-desktop"></i>Pin Use List</a>
+                    </li>
+                    <li>
+                        <a href="pinpasschange.aspx"><i class="fa fa-fw fa-desktop"></i>Pin Password Change</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="passcheck.aspx"><i class="fa fa-fw fa-dashboard"></i>6. Member Password Check List</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul10"><i class="fa fa-fw fa-arrows-v"></i>7. Income Tree <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul10" class="collapse">
+                            <li>
+                        <a href="Geneology.aspx"><i class="fa fa-fw fa-desktop"></i>Direct Purchase Tree</a>
+                    </li>
+                         <li>
+                        <a href="clubgeneology.aspx"><i class="fa fa-fw fa-desktop"></i>Bonus Income Tree</a>
+                    </li>
+                    <li>
+                        <a href="DirectList.aspx"><i class="fa fa-fw fa-desktop"></i>Direct Sponser List</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-desktop"></i>Repurchase Income</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-desktop"></i>Turnover Income</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-desktop"></i>Rewards Income</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul11"><i class="fa fa-fw fa-arrows-v"></i>8. Company Turnover Statement <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul11" class="collapse">
+                            <li>
+                        <a href="TurnoverDaily.aspx"><i class="fa fa-fw fa-desktop"></i>Daily Turnover Report</a>
+                    </li>
+                         <li>
+                        <a href="TurnoverWeekly.aspx"><i class="fa fa-fw fa-desktop"></i>Weekly Turnover Report</a>
+                    </li>
+                    <li>
+                        <a href="TurnoverMonthly.aspx"><i class="fa fa-fw fa-desktop"></i>Monthly Turnover Report</a>
+                    </li>
+                    <li>
+                        <a href="TurnoverYearly.aspx"><i class="fa fa-fw fa-desktop"></i>Yearly Turnover Report</a>
+                    </li>
+                    <li>
+                        <a href="Turnover.aspx"><i class="fa fa-fw fa-desktop"></i>All Total Turnover Report</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul12"><i class="fa fa-fw fa-arrows-v"></i>9. Edit Record <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul12" class="collapse">
+                         <li>
+                        <a href="EditMemberRecord.aspx"><i class="fa fa-fw fa-desktop"></i>Member ID</a>
+                    </li>
+                         <li>
+                        <a href="Register.aspx"><i class="fa fa-fw fa-desktop"></i>Member Add</a>
+                    </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="PaymentSearch.aspx"><i class="fa fa-fw fa-dashboard"></i>10. Search Closing Payment</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul1"><i class="fa fa-fw fa-arrows-v"></i>11. Closing Regular <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul1" class="collapse">
+                        <%-- <li>
+                        <a href="ClosingDetail2.aspx"><i class="fa fa-fw fa-desktop"></i>Weekly Closing Report</a>
+                    </li>--%>
+                         <li>
+                        <a href="ClosingDetail.aspx"><i class="fa fa-fw fa-desktop"></i>Monthly Closing Report</a>
+                    </li>
+                    <li>
+                        <a href="Closing.aspx"><i class="fa fa-fw fa-desktop"></i>Perform Closing</a>
+                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul13"><i class="fa fa-fw fa-arrows-v"></i>12. Daily Report List <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul13" class="collapse">
+                         <li>
+                        <a href="ActiveReport.aspx"><i class="fa fa-fw fa-desktop"></i>Active Member Daily Report List</a>
+                    </li>
+                         <li>
+                        <a href="InActiveReport.aspx"><i class="fa fa-fw fa-desktop"></i>Non Active Member Daily Report List</a>
+                    </li>
+                        </ul>
+                    </li>
+       <%--             <li>
+                        <a href="Geneology.aspx"><i class="fa fa-fw fa-dashboard"></i>Direct Purchase Tree</a>
+                    </li>
+                    <li>
+                        <a href="clubgeneology.aspx"><i class="fa fa-fw fa-bar-chart-o"></i>Next Club Tree</a>
+                    </li>
+                    
+                    <li>
+                        <a href="Register.aspx"><i class="fa fa-fw fa-edit"></i>Add Member</a>
+                    </li>
+                    <li>
+                        <a href="EditMemberRecord.aspx"><i class="fa fa-fw fa-desktop"></i>Edit Member Record</a>
+
+                    </li>
+                     <li>
+                        <a href="CheckMemberstatus.aspx"><i class="fa fa-fw fa-desktop"></i>Check Member Status</a>
+                    </li>
+                     <li>
+                        <a href="Amountdetail.aspx"><i class="fa fa-fw fa-desktop"></i>Income Check</a>
+                    </li>
+                    <li>
+                        <a href="Home.aspx"><i class="fa fa-fw fa-desktop"></i>Member Approval</a>
+                    </li>
+                     <li>
+                        <a href="passcheck.aspx"><i class="fa fa-fw fa-desktop"></i>Check Distributer Password</a>
+                    </li>
+                    <li>
+                        <a href="password.aspx"><i class="fa fa-fw fa-desktop"></i>Pins</a>
+                    </li>
+                    <li>
+                        <a href="usedpins.aspx"><i class="fa fa-fw fa-desktop"></i>Pins by Registered User</a>
+                    </li>
+                    <li>
+                        <a href="Amountdetail.aspx"><i class="fa fa-fw fa-desktop"></i>Income Check</a>
+                    </li>
+                   <li>
+                        <a href="Receipt.aspx"><i class="fa fa-fw fa-desktop"></i>Receipt</a>
+                    </li>
+                     <li>
+                        <a href="Turnover.aspx"><i class="fa fa-fw fa-desktop"></i>Total TurnOver</a>
+                    </li>
+                     <li>
+                        <a href="pinpasschange.aspx"><i class="fa fa-fw fa-desktop"></i>Pin Password Change</a>
+                    </li>
+                 <li>
+                        <a href="Closing.aspx"><i class="fa fa-fw fa-desktop"></i>Closing</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul2"><i class="fa fa-fw fa-arrows-v"></i>Monthly Closing <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul2" class="collapse">
+                            <li>
+                        <a href="ClosingDetail.aspx"><i class="fa fa-fw fa-desktop"></i>Closing Detail</a>
+                    </li>
+                    </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul3"><i class="fa fa-fw fa-arrows-v"></i>Weekly Closing <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul3" class="collapse">
+                            <li>
+                        <a href="ClosingDetail2.aspx"><i class="fa fa-fw fa-desktop"></i>Closing Detail</a>
+                    </li>
+                         
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="PaymentSearch.aspx"><i class="fa fa-fw fa-desktop"></i>Search Closing Payment</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Weekly Activity <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Weekly Direct Purchase Closing</a>
+                            </li>
+                            <li>
+                                <a href="#">Weekly Next Club Closing</a>
+                            </li>
+                            <li>
+                                <a href="#">Weekly Direct Sponser Closing</a>
+                            </li>
+                              <li>
+                                <a href="#">Weekly Direct Closing List</a>
+                            </li>
+                              <li>
+                                <a href="#">Weekly Next Club Closing List</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ul1"><i class="fa fa-fw fa-arrows-v"></i> Monthly Activity <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ul1" class="collapse">
+                            <li>
+                                <a href="#">TurnOver Income Closing</a>
+                            </li>
+                            <li>
+                                <a href="#">TurnOver Income Closing List</a>
+                            </li>
+                              <li>
+                                <a href="#">Reward List Status</a>
+                            </li>
+                              <li>
+                                <a href="#">Reward Approval</a>
+                            </li>
+                        </ul>
+                    </li>--%>
+                     <li>
+                        <a href="/user/bill.aspx"><i class="fa fa-fw fa-dashboard"></i>Bill</a>
+                    </li>
+                    <li>
+                        <a href="/user/printform.aspx"><i class="fa fa-fw fa-dashboard"></i>Print Registration Detail</a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Ulx"><i class="fa fa-fw fa-arrows-v"></i>Coupon  <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="Ulx" class="collapse">
+                        <%-- <li>
+                        <a href="ClosingDetail2.aspx"><i class="fa fa-fw fa-desktop"></i>Weekly Closing Report</a>
+                    </li>--%>
+                         <li>
+                        <a href="coupongen.aspx"><i class="fa fa-fw fa-desktop"></i>Coupon Genrator</a>
+                    </li>
+                    <li>
+                        <a href="repurchase.aspx"><i class="fa fa-fw fa-desktop"></i>Repurchase</a>
+                    </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="../Default.aspx"><i class="fa fa-fw fa-dashboard"></i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+         <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                       <center>
+                       
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                        
+                     </center>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+<div style="margin-left:250px; color:#FFFFFF; background-color:Blue;">
+    Copyright © 2016 NexTrade | ALL RIGHTS RESERVED.
+</div>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    </form>
+
+</body>
+
+</html>

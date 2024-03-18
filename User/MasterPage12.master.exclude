@@ -1,0 +1,278 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage12.master.cs" Inherits="User_MasterPage2" %>
+<%@ Register Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" tagPrefix="ajax" %>
+
+<!DOCTYPE html>
+
+<html lang="en" class="fixed">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>"Welcome to NexTrade Sales India Pvt. Ltd."</title>
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <script src="js/pace.min.js"></script>
+    <link href="css/pace-theme-minimal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toastr.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+        <div class="wrap">
+            <ajax:ToolkitScriptManager ID="toolkit1" runat="server"></ajax:ToolkitScriptManager>
+    <div class="page-header">
+        <div class="leftside-header">
+            <div class="logo">
+                <a href="index.aspx" class="on-click">
+                    <img alt="logo" src="header-top.jpg" />
+                </a>
+            </div>
+            <div id="menu-toggle" class="visible-xs toggle-left-sidebar" data-toggle-class="left-sidebar-open" data-target="html">
+                <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+            </div>
+        </div>
+        <div class="rightside-header">
+            <div class="header-middle"></div>
+            <%--<div class="header-section" id="search-headerbox">
+                <input type="text" name="search" id="search" placeholder="Search...">
+                <i class="fa fa-search search" id="search-icon" aria-hidden="true"></i>
+                <div class="header-separator"></div>
+            </div>--%>
+           
+            <div class="header-section" id="user-headerbox">
+                <div class="user-header-wrap">
+                    <div class="user-photo">
+                        <img src="js/Aha.ico" alt="Jane Doe" />
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span>
+                        
+                    </div>
+                    <i class="fa fa-plus icon-open" aria-hidden="true"></i>
+                    <i class="fa fa-minus icon-close" aria-hidden="true"></i>
+                </div>
+                <div class="user-options dropdown-box">
+                    <div class="drop-content basic">
+                        <ul>
+                            <li> <a href="edit.aspx"><i class="fa fa-user" aria-hidden="true"></i>Update Profile</a></li>
+                            <li><a href="../Default.aspx"><i class="fa fa-cog" aria-hidden="true"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="page-body">
+        <div class="left-sidebar">
+            <!-- left sidebar HEADER -->
+            <div class="left-sidebar-header">
+                <div class="left-sidebar-title">DASHBOARD</div>
+                <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" data-toggle-class="left-sidebar-collapsed" data-target="html">
+                    <span></span>
+                </div>
+            </div>
+            <!-- NAVIGATION -->
+            <!-- ========================================================= -->
+            <div id="left-nav" class="nano">
+                <div class="nano-content">
+                    <nav>
+                        <ul class="nav" id="main-nav">
+                            <!--HOME-->
+                            <li><a href="#"><i  aria-hidden="true"></i><span>Dashboard</span></a></li>
+                            <!--UI ELEMENTENTS-->
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Member Approval</span></a>
+                                <ul class="nav child-nav level-1">
+                                     <%--<li class="active-item"><a href="coupongen.aspx">Coupon Generator</a></li>--%>
+                                    <li ><a href="Home.aspx">InAvtive UserId</a></li>
+                                    <li><a href="active.aspx">Active UserId</a></li>
+                                    <li><a href="receipt.aspx">Print Reciept</a></li>
+                                     <li >
+                                <a href="printform.aspx" ><span>Print Registration</span></a>
+                                
+                            </li>
+                                     <li> <a href="bill.aspx" >Bill Print</a></li>
+                                   
+                                </ul>
+                            </li>
+                            <!--CHARTS-->
+                            <li class="has-child-item close-item">
+                                 <a><i  aria-hidden="true"></i><span>Income</span></a>
+                                <ul class="nav child-nav level-1">
+                               <li> <a href="weeklyincome.aspx" ><span>Daily Income</span></a></li>
+                                     <li> <a href="dailystatement.aspx" ><span>Daily Income Statement</span></a></li>
+                                     <li><a href="Monthlyincome.aspx" ><span>Monthly Income</span></a></li>
+                                     <li><a href="Monthlyincome.aspx" ><span>Monthly Income Statement</span></a></li>
+                                </ul>
+                            </li>
+                           
+                            <!--FORMS-->
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Payment Statement</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="WeeklyStatement.aspx">Weekly Statement</a></li>
+                                    <li><a href="MonthlyStatement.aspx">Monthly Statement </a></li>
+                                    
+                                </ul>
+                            </li>
+                            <!--TABLES-->
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Member Pin</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="password.aspx">Pin Generate</a></li>
+                                    <li><a href="usedpins.aspx">Pin Use List</a></li>
+                                      <li><a href="pintransfer.aspx">Pin Transfer</a></li>
+                                    <li><a href="pinpasschange.aspx">Pin Password Change</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-child-item close-item">
+                                <a href="passcheck.aspx" ><span>Member Password Checklist</span></a>
+                                
+                            </li>
+
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Income Tree</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="Geneology.aspx">Direct Purchase Tree</a></li>
+                                    <li><a href="clubgeneology.aspx">Bonus Income Tree </a></li>
+                                    <li><a href="DirectList.aspx">Direct Sponser List Active</a></li>
+                                    <li><a href="DirectList2.aspx">Direct Sponser List Inactive</a></li>
+                                    <li><a href="#">Self Repurchase</a></li>
+                                      <li><a href="#">Sponser Repurchase</a></li>
+                                   
+                                    <li><a href="#">Reward Income</a></li>
+                                </ul>
+                            </li>
+                            <!--PAGES-->
+                            
+                            <!--WIDGETS-->
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Company Turnover Statement</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="TurnoverDaily.aspx">Daily Turnover Report</a></li>
+                                    <li><a href="TurnoverWeekly.aspx">Weekly Turnover Report</a></li>
+                                    <li><a href="TurnoverMonthly.aspx">Monthly Turnovre Report</a></li>
+                                    <li><a href="TurnoverYearly.aspx">Yearly Turnover Report</a></li>
+                                    <li><a href="Turnover.aspx">All Total Turnover Report</a></li>
+                                </ul>
+                            </li>
+                            <!--HELPERS-->
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Edit Record</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="EditMemberRecord.aspx">Member Id</a></li>
+                                    <li><a href="Register.aspx">Member Add</a></li>
+                                </ul>
+                            </li>
+
+                             <li class="has-child-item close-item">
+                                <a href="PaymentSearch.aspx" ><span>Search Clossing Payment</span></a>
+                                
+                            </li>
+                             <li class="has-child-item close-item">
+                                <a href="incentive.aspx" ><span>Incentive Generate</span></a>
+                                
+                            </li>
+
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Clossing Reguler</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="ClosingDetail2.aspx">Clossing Report</a></li>
+                                    <li><a href="ClosingDetail.aspx">Monthly Clossing Report</a></li>
+                                    <li><a href="closingdetailcheque.aspx">Monthly Clossing Payment Report</a></li>
+                                    <li><a href="Closing.aspx">Perform Clossing</a></li>
+                                    
+                                </ul>
+                            </li>
+
+                            <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Member Report List</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="ActiveReport.aspx">Active Member Daily Report List</a></li>
+                                    <li><a href="ActiveReport5.aspx">Non-Active Member Daily Report List</a></li>
+                                   
+                                    
+                                </ul>
+                            </li>
+
+                            
+                           
+
+                           <%-- <li class="has-child-item close-item">
+                                <a><i  aria-hidden="true"></i><span>Coupon</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="coupongen.aspx">Coupon Generator</a></li>
+                                    <li><a href="repurchase.aspx">Repurchase</a></li>
+                                   
+                                    
+                                </ul>
+                            </li>--%>
+
+                            <li class="has-child-item close-item">
+                                <a href="../Default.aspx" ><span>Logout</span></a>
+                                
+                            </li>
+                            <!--MENU LEVELS-->
+                           
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <div class="leftside-content-header">
+                    <ul class="breadcrumbs">
+                        <li><i  aria-hidden="true"></i><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="animated fadeInUp">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+                            <div class="panel-content">
+                                
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+   
+
+        <a href="#" class="scroll-to-top"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/nano-scroller.js"></script>
+<script src="js/template-script.min.js"></script>
+<script src="js/template-init.min.js"></script>
+<script src="js/toastr.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

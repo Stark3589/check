@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+public partial class User_MasterPage : System.Web.UI.MasterPage
+{
+    BussinessLayer ob = new BussinessLayer();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            Label1.Text = Session["newuser"].ToString();
+            DataTable dt = ob.dttt("select name from register where username='" + Label1.Text + "'");
+            Label2.Text = dt.Rows[0][0].ToString();
+        }
+        catch (Exception) { Response.Redirect("../login.aspx"); }
+    }
+}
